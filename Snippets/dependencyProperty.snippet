@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Dependency property</Title>
+			<Shortcut>depp</Shortcut>
+			<Description>Code snippet for dependency property.</Description>
+			<Author>Kristian Virkus</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>name</ID>
+					<ToolTip>Name of the property</ToolTip>
+					<Default>DependencyProperty</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>type</ID>
+					<ToolTip>Property type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>class</ID>
+					<ToolTip>This class' name</ToolTip>
+					<Default> </Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>default</ID>
+					<ToolTip>Default value of the property</ToolTip>
+					<Default>null</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>comment</ID>
+					<ToolTip>Comment for the event</ToolTip>
+					<Default> </Default>
+				</Literal>
+				<Literal Editable="false">
+					<ID>classname</ID>
+					<ToolTip>Class name</ToolTip>
+					<Function>ClassName()</Function>
+					<Default>ClassNamePlaceholder</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[private const string $name$PropertyName = "$name$";
+		private static readonly DependencyProperty $name$Property = DependencyProperty.Register(
+			$name$PropertyName,
+			typeof($type$),
+			typeof($classname$),
+			new FrameworkPropertyMetadata($default$));
+		/// <summary>
+		/// Gets or sets $comment$
+		/// </summary>
+		public $type$ $name$
+		{
+			get
+			{
+				return ($type$)GetValue($name$Property);
+			}
+			set
+			{
+				if (($type$)GetValue($name$Property) != value)
+					SetValue($name$Property, value);
+			}
+		}$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

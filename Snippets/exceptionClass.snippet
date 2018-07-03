@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Exception class</Title>
+			<Shortcut>excc</Shortcut>
+			<Description>Class implementing an exception with a single extra details property.</Description>
+			<Author>Kristian Virkus</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>namespace</ID>
+					<ToolTip>Namespace the class should be in.</ToolTip>
+					<Default>iBMS</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>name</ID>
+					<ToolTip>Name of the exception.</ToolTip>
+					<Default>My</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>detailType</ID>
+					<ToolTip>Type of the extra detail property.</ToolTip>
+					<Default>object</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>detailPropName</ID>
+					<ToolTip>Name of the extra detail property.</ToolTip>
+					<Default>Extra</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>detailPropComment</ID>
+					<ToolTip>Comment on extra detail property.</ToolTip>
+					<Default>the extra detail.</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>detailComment</ID>
+					<ToolTip>Constructor argument comment for the extra detail.</ToolTip>
+					<Default>Extra detail.</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[// $$Header: $$
+
+using System;
+
+namespace $namespace$
+{
+	/// <summary>
+	/// Implements an exception for extracting processes.
+	/// </summary>
+	public class $name$Exception : Exception
+	{
+		#region --- Properties ---
+
+		/// <summary>
+		/// $detailPropComment$
+		/// </summary>
+		public $detailType$ $detailPropName$ { get; private set; }
+
+		#endregion
+
+		#region --- Constructors ---
+
+		/// <summary>
+		/// Initialises a new instance of the <cref>$name$Exception</cref> class.
+		/// </summary>
+		public $name$Exception()
+			: this(null, null)
+		{
+		}
+
+		/// <summary>
+		/// Initialises a new instance of the <cref>$name$Exception</cref> class.
+		/// </summary>
+		/// <param name="$detailPropName$">$detailComment$</param>
+		public $name$Exception($detailType$ $detailPropName$)
+			: this($detailPropName$, null, null)
+		{
+		}
+
+		/// <summary>
+		/// Initialises a new instance of the <cref>$name$Exception</cref> class.
+		/// </summary>
+		/// <param name="$detailPropName$">$detailComment$</param>
+		/// <param name="message">The exception message.</param>
+		/// <param name="innerException">Inner exception.</param>
+		public $name$Exception($detailType$ $detailPropName$, string message, Exception innerException)
+			: base(message, innerException)
+		{
+			this.$detailPropName$ = $detailPropName$;
+		}
+
+		#endregion
+	}
+}
+$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

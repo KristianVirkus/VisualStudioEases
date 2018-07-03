@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Region</Title>
+			<Shortcut>reg</Shortcut>
+			<Description>Code snippet for region definition</Description>
+			<Author>Kristian Virkus</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>title</ID>
+					<ToolTip>Title of the region</ToolTip>
+					<Default>Title</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[		#region --- $title$ ---
+		
+		$end$
+		#endregion]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
